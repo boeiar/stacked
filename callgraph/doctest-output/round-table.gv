@@ -1,0 +1,71 @@
+// callGraph
+digraph {
+	20 [label=vLCDTask]
+	47 [label=xQueueGenericSend]
+	20 -> 47
+	80 [label=xTaskResumeAll]
+	47 -> 80
+	78 [label=xTaskIncrementTick]
+	80 -> 78
+	68 [label=prvResetNextTaskUnblockTime]
+	78 -> 68
+	27 [label=hang]
+	33 [label=vPortPreemptiveTick]
+	78 [label=xTaskIncrementTick]
+	33 -> 78
+	68 [label=prvResetNextTaskUnblockTime]
+	78 -> 68
+	51 [label=vSerialISR]
+	48 [label=xQueueGenericSendFromISR]
+	51 -> 48
+	39 [label=prvCopyDataToQueue]
+	48 -> 39
+	85 [label=__aeabi_memcpy]
+	39 -> 85
+	87 [label=__aeabi_memcpy8]
+	85 -> 87
+	60 [label=vSpeedTask]
+	59 [label=prvSpeedUpdate]
+	60 -> 59
+	57 [label=prvSpeedCalc]
+	59 -> 57
+	92 [label=snprintf]
+	57 -> 92
+	105 [label=_PrintfSmallNoMb]
+	92 -> 105
+	102 [label=_LitobSmallNoMb]
+	105 -> 102
+	88 [label=__aeabi_uidiv]
+	102 -> 88
+	98 [label=__aeabi_idiv0]
+	88 -> 98
+	65 [label=prvIdleTask]
+	64 [label=prvCheckTasksWaitingTermination]
+	65 -> 64
+	83 [label=vTimer1ISR]
+	48 [label=xQueueGenericSendFromISR]
+	83 -> 48
+	39 [label=prvCopyDataToQueue]
+	48 -> 39
+	85 [label=__aeabi_memcpy]
+	39 -> 85
+	87 [label=__aeabi_memcpy8]
+	85 -> 87
+	84 [label=__cmain]
+	28 [label=main]
+	84 -> 28
+	61 [label=vStartSpeedTask]
+	28 -> 61
+	52 [label=vSerialPutString]
+	61 -> 52
+	54 [label=xSerialPutChar]
+	52 -> 54
+	47 [label=xQueueGenericSend]
+	54 -> 47
+	80 [label=xTaskResumeAll]
+	47 -> 80
+	78 [label=xTaskIncrementTick]
+	80 -> 78
+	68 [label=prvResetNextTaskUnblockTime]
+	78 -> 68
+}
