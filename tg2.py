@@ -52,7 +52,7 @@ bottoms = np.zeros(r,)
 row_counts = np.zeros(r,)
 
 for (col, h, l) in zip(columns, stacksizes, nodes):
-    patch_handles.append(ax.bar(col, h, align='center', bottom=bottoms[r],
+    patch_handles.append(ax.bar(col, h, align='center', bottom=bottoms[col],
         color=colors[int(row_counts[col]) % len(colors)]))
     bottoms[col] += h
     row_counts[col] += 1
@@ -61,9 +61,9 @@ for (col, h, l) in zip(columns, stacksizes, nodes):
     bl = patch.get_xy()
     x = 0.5*patch.get_width() + bl[0]
     y = 0.5*patch.get_height() + bl[1]
-    ax.text(x, y, fnames[l], ha='center',va='center', fontsize='small')
+    ax.text(x, y, fnames[l] + " " + str(h), ha='center',va='center', fontsize='small')
   
-x_pos = np.arange(r+1)
+x_pos = np.arange(r)
 ax.set_xticks(x_pos)
 ax.set_xticklabels(chains)
 ax.set_ylabel('Distance')
