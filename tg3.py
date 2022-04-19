@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import sys
 from operator import attrgetter
 
-tree = ET.parse('callgraph/callGraph.xml')
+tree = ET.parse('callGraph.cgx')
 root = tree.getroot()
 mcs = root.findall('.//maxCallChain')
 fcs = root.findall('.//functions/function')
@@ -53,7 +53,7 @@ deepestStack = {'sum': getSum(sortedStacks[0]), 'count': getCount(sortedStacks[0
 colors = "rgb"
 
 patch_handles = []
-fig = plt.figure(figsize=(10,8))
+fig = plt.figure(figsize=(19.2,10.8))
 ax = fig.add_subplot(111)
 
 r = len(stacks)
@@ -101,5 +101,6 @@ ax.set_ylim(ymax= abs(deepestStack['sum'] / deepestStack['count']))
 #for s in sortedStacks:
 #    print(stacks[s]['fcns'])
 #print(deepestStack)                            
-plt.ion()    
-plt.show()
+#plt.ion()    
+#plt.show()
+plt.savefig(r"E:\Users\boe\Documents\boeboe\VC-stuff\stacked\tg3.svg")
